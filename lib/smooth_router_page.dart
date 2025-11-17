@@ -14,40 +14,54 @@ class SmoothRouterPage {
     switch (transition) {
       case RouteTransitions.fade:
         return FadeTransition(
-          opacity: CurvedAnimation(
-            parent: animation,
-            curve: curve,
-          ),
+          opacity: CurvedAnimation(parent: animation, curve: curve),
           child: child,
         );
       case RouteTransitions.slideRight:
-        return _createSlideTransition(animation, curve, child, SlideDirection.right);
+        return _createSlideTransition(
+          animation,
+          curve,
+          child,
+          SlideDirection.right,
+        );
       case RouteTransitions.slideLeft:
-        return _createSlideTransition(animation, curve, child, SlideDirection.left);
+        return _createSlideTransition(
+          animation,
+          curve,
+          child,
+          SlideDirection.left,
+        );
       case RouteTransitions.slideUp:
-        return _createSlideTransition(animation, curve, child, SlideDirection.up);
+        return _createSlideTransition(
+          animation,
+          curve,
+          child,
+          SlideDirection.up,
+        );
       case RouteTransitions.slideDown:
-        return _createSlideTransition(animation, curve, child, SlideDirection.down);
+        return _createSlideTransition(
+          animation,
+          curve,
+          child,
+          SlideDirection.down,
+        );
       case RouteTransitions.scale:
         return ScaleTransition(
-          scale: CurvedAnimation(
-            parent: animation,
-            curve: curve,
-          ),
+          scale: CurvedAnimation(parent: animation, curve: curve),
           child: child,
         );
       case RouteTransitions.custom:
-      // For custom transitions, return the child and let user handle it
+        // For custom transitions, return the child and let user handle it
         return child;
     }
   }
 
   static Widget _createSlideTransition(
-      Animation<double> animation,
-      Curve curve,
-      Widget child,
-      SlideDirection direction,
-      ) {
+    Animation<double> animation,
+    Curve curve,
+    Widget child,
+    SlideDirection direction,
+  ) {
     const begin = {
       SlideDirection.right: Offset(1.0, 0.0),
       SlideDirection.left: Offset(-1.0, 0.0),
@@ -62,9 +76,6 @@ class SmoothRouterPage {
       end: end,
     ).chain(CurveTween(curve: curve));
 
-    return SlideTransition(
-      position: animation.drive(tween),
-      child: child,
-    );
+    return SlideTransition(position: animation.drive(tween), child: child);
   }
 }

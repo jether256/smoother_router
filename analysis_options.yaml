@@ -1,4 +1,13 @@
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  errors:
+    unused_import: warning
+    unnecessary_library_name: ignore
+    annotate_overrides: warning
+
+linter:
+  rules:
+    # Disable some strict rules for packages
+    always_declare_return_types: false
+    always_require_non_null_named_parameters: false
