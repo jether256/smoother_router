@@ -1,6 +1,6 @@
 # Smooth Router 🚀
 
-[![pub package](https://img.shields.io/pub/v/smooth_router.svg)](https://pub.dev/packages/smooth_router)
+[![pub package](https://img.shields.io/pub/v/smoother_router.svg)](https://pub.dev/packages/smoother_router)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.0.0-blue)](https://flutter.dev)
 
