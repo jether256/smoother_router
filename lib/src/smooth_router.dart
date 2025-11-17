@@ -8,18 +8,18 @@ class SmoothRouter {
   SmoothRouter._internal();
 
   static final GlobalKey<NavigatorState> navigatorKey =
-  GlobalKey<NavigatorState>();
+      GlobalKey<NavigatorState>();
 
   static BuildContext? get context => navigatorKey.currentContext;
 
   static Future<T?> push<T>(
-      Widget page, {
-        RouteTransitions transition = RouteTransitions.slideRight,
-        Duration duration = const Duration(milliseconds: 300),
-        Curve curve = Curves.easeInOut,
-        bool replace = false,
-        bool clearStack = false,
-      }) {
+    Widget page, {
+    RouteTransitions transition = RouteTransitions.slideRight,
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeInOut,
+    bool replace = false,
+    bool clearStack = false,
+  }) {
     final route = _createRoute<T>(
       page,
       transition: transition,
@@ -30,7 +30,7 @@ class SmoothRouter {
     if (clearStack) {
       return navigatorKey.currentState!.pushAndRemoveUntil<T>(
         route,
-            (route) => false,
+        (route) => false,
       );
     } else if (replace) {
       return navigatorKey.currentState!.pushReplacement<T, T>(route);
@@ -52,11 +52,11 @@ class SmoothRouter {
   static bool get canPop => navigatorKey.currentState!.canPop();
 
   static PageRouteBuilder<T> _createRoute<T>(
-      Widget page, {
-        required RouteTransitions transition,
-        required Duration duration,
-        required Curve curve,
-      }) {
+    Widget page, {
+    required RouteTransitions transition,
+    required Duration duration,
+    required Curve curve,
+  }) {
     return PageRouteBuilder<T>(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -76,34 +76,26 @@ class SmoothRouter {
 
   // Quick navigation methods
   static Future<T?> fade<T>(
-      Widget page, {
-        Duration duration = const Duration(milliseconds: 300),
-      }) {
-    return push<T>(
-      page,
-      transition: RouteTransitions.fade,
-      duration: duration,
-    );
+    Widget page, {
+    Duration duration = const Duration(milliseconds: 300),
+  }) {
+    return push<T>(page, transition: RouteTransitions.fade, duration: duration);
   }
 
   static Future<T?> slide<T>(
-      Widget page, {
-        SlideDirection direction = SlideDirection.right,
-        Duration duration = const Duration(milliseconds: 300),
-      }) {
+    Widget page, {
+    SlideDirection direction = SlideDirection.right,
+    Duration duration = const Duration(milliseconds: 300),
+  }) {
     // Fixed the slide direction mapping
     final transition = _getSlideTransition(direction);
-    return push<T>(
-      page,
-      transition: transition,
-      duration: duration,
-    );
+    return push<T>(page, transition: transition, duration: duration);
   }
 
   static Future<T?> scale<T>(
-      Widget page, {
-        Duration duration = const Duration(milliseconds: 300),
-      }) {
+    Widget page, {
+    Duration duration = const Duration(milliseconds: 300),
+  }) {
     return push<T>(
       page,
       transition: RouteTransitions.scale,
@@ -136,9 +128,4 @@ enum RouteTransitions {
   custom,
 }
 
-enum SlideDirection {
-  right,
-  left,
-  up,
-  down,
-}
+enum SlideDirection { right, left, up, down }

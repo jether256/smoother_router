@@ -8,24 +8,24 @@ typedef CustomTransitionBuilder = Widget Function(
     );
 
 class CustomTransitionPage extends PageRouteBuilder {
-  final Widget page;
+  @override
   final CustomTransitionBuilder transitionsBuilder;
 
   CustomTransitionPage({
-    required this.page,
+    required super.pageBuilder,
     required this.transitionsBuilder,
-    Duration duration = const Duration(milliseconds: 300),
-    Curve curve = Curves.easeInOut,
+    super.transitionDuration = const Duration(milliseconds: 300),
+    super.reverseTransitionDuration,
+    super.opaque = true,
+    super.barrierDismissible = false,
+    super.barrierColor,
+    super.barrierLabel,
+    super.maintainState = true,
+    super.fullscreenDialog = false,
+    super.settings,
   }) : super(
-    pageBuilder: (context, animation, secondaryAnimation) => page,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return transitionsBuilder(
-        context,
-        animation,
-        secondaryAnimation,
-        child,
-      );
+      return transitionsBuilder(context, animation, secondaryAnimation, child);
     },
-    transitionDuration: duration,
   );
 }

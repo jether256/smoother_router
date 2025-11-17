@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Smooth Router Demo',
       navigatorKey: SmoothRouter.navigatorKey,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomePage(),
     );
   }
@@ -78,10 +76,7 @@ class NextPage extends StatelessWidget {
         ),
       ),
       body: const Center(
-        child: Text(
-          'Smooth Transition!',
-          style: TextStyle(fontSize: 24),
-        ),
+        child: Text('Smooth Transition!', style: TextStyle(fontSize: 24)),
       ),
     );
   }

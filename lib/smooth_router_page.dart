@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'src/smooth_router.dart';
-import 'src/transitions/fade_transition.dart';
-import 'src/transitions/slide_transition.dart';
-import 'src/transitions/scale_transition.dart';
-import 'src/transitions/custom_transition.dart';
 
 class SmoothRouterPage {
   static Widget createTransition({
@@ -40,7 +36,8 @@ class SmoothRouterPage {
           ),
           child: child,
         );
-      default:
+      case RouteTransitions.custom:
+      // For custom transitions, return the child and let user handle it
         return child;
     }
   }

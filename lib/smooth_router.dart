@@ -1,4 +1,4 @@
-library smooth_router;
+// Remove this line: library smooth_router;
 
 export 'src/smooth_router.dart';
 export 'src/smooth_route.dart';

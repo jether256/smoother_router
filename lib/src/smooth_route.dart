@@ -22,14 +22,11 @@ class SmoothRouteGenerator {
   final List<SmoothRoute> routes;
   final Widget? notFoundPage;
 
-  const SmoothRouteGenerator({
-    required this.routes,
-    this.notFoundPage,
-  });
+  const SmoothRouteGenerator({required this.routes, this.notFoundPage});
 
   Route<dynamic> generateRoute(RouteSettings settings) {
     final route = routes.firstWhere(
-          (r) => r.path == settings.name,
+      (r) => r.path == settings.name,
       orElse: () => SmoothRoute(
         path: '/not-found',
         builder: (_) => notFoundPage ?? _DefaultNotFoundPage(),
@@ -61,9 +58,7 @@ class _DefaultNotFoundPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Page Not Found')),
-      body: const Center(
-        child: Text('The requested page was not found.'),
-      ),
+      body: const Center(child: Text('The requested page was not found.')),
     );
   }
 }

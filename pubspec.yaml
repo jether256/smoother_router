@@ -2,6 +2,7 @@ name: smoother_router
 description: "An advanced yet easy-to-use Flutter routing package with smooth animations and simple API."
 version: 0.0.1
 homepage: https://github.com/jether256/smoother_router
+repository: https://github.com/yourusername/smoother_router
 
 environment:
   sdk: ^3.9.2

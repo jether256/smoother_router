@@ -8,16 +8,13 @@ class ScaleTransitionPage extends PageRouteBuilder {
     Duration duration = const Duration(milliseconds: 300),
     Curve curve = Curves.easeInOut,
   }) : super(
-    pageBuilder: (context, animation, secondaryAnimation) => page,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return ScaleTransition(
-        scale: CurvedAnimation(
-          parent: animation,
-          curve: curve,
-        ),
-        child: child,
-      );
-    },
-    transitionDuration: duration,
-  );
+         pageBuilder: (context, animation, secondaryAnimation) => page,
+         transitionsBuilder: (context, animation, secondaryAnimation, child) {
+           return ScaleTransition(
+             scale: CurvedAnimation(parent: animation, curve: curve),
+             child: child,
+           );
+         },
+         transitionDuration: duration,
+       );
 }
